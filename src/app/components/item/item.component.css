@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+mat-icon {
+  font-size: 1rem;
+}
+
+mat-card {
+  margin-bottom: 1%;
+}

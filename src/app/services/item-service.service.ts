@@ -1,0 +1,137 @@
+import { Injectable } from '@angular/core';
+import { Item } from '../models/item.model';
+import { Observable, map, of } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ItemserviceService {
+  items$: Observable<Item[]> = of([
+    {
+      id: 1001,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=AC&height=120&width=120',
+      firstName: 'Ashlee',
+      lastName: 'Carter',
+      email: 'Ashlee.Carter@dummyapis.com',
+      contactNumber: '4622396798',
+      age: 33,
+      dob: '12/08/1990',
+      salary: 1,
+      address: 'Address1',
+    },
+    {
+      id: 1002,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=OZ&height=120&width=120',
+      firstName: 'Oswaldo',
+      lastName: 'Zieme',
+      email: 'Oswaldo.Zieme@dummyapis.com',
+      contactNumber: '4145795907',
+      age: 44,
+      dob: '23/06/1979',
+      salary: 2,
+      address: 'Address2',
+    },
+    {
+      id: 1003,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=MU&height=120&width=120',
+      firstName: 'Mylene',
+      lastName: 'Ullrich',
+      email: 'Mylene.Ullrich@dummyapis.com',
+      contactNumber: '4249793245',
+      age: 52,
+      dob: '22/07/1971',
+      salary: 3,
+      address: 'Address3',
+    },
+    {
+      id: 1004,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=DT&height=120&width=120',
+      firstName: 'Dennis',
+      lastName: 'Treutel',
+      email: 'Dennis.Treutel@dummyapis.com',
+      contactNumber: '4566993241',
+      age: 32,
+      dob: '02/04/1991',
+      salary: 4,
+      address: 'Address4',
+    },
+    {
+      id: 1005,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=MB&height=120&width=120',
+      firstName: 'Marcia',
+      lastName: 'Bode',
+      email: 'Marcia.Bode@dummyapis.com',
+      contactNumber: '4792895575',
+      age: 39,
+      dob: '24/09/1984',
+      salary: 5,
+      address: 'Address5',
+    },
+    {
+      id: 1006,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=TR&height=120&width=120',
+      firstName: 'Theo',
+      lastName: 'Ratke',
+      email: 'Theo.Ratke@dummyapis.com',
+      contactNumber: '4512895885',
+      age: 81,
+      dob: '27/01/1942',
+      salary: 6,
+      address: 'Address6',
+    },
+    {
+      id: 1007,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=MB&height=120&width=120',
+      firstName: 'Micheal',
+      lastName: 'Bernhard',
+      email: 'Micheal.Bernhard@dummyapis.com',
+      contactNumber: '4040496165',
+      age: 50,
+      dob: '29/12/1973',
+      salary: 7,
+      address: 'Address7',
+    },
+    {
+      id: 1008,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=DC&height=120&width=120',
+      firstName: 'Domenico',
+      lastName: 'Crooks',
+      email: 'Domenico.Crooks@dummyapis.com',
+      contactNumber: '4950198564',
+      age: 58,
+      dob: '30/12/1965',
+      salary: 8,
+      address: 'Address8',
+    },
+    {
+      id: 1009,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=DS&height=120&width=120',
+      firstName: 'Dora',
+      lastName: 'Streich',
+      email: 'Dora.Streich@dummyapis.com',
+      contactNumber: '4676090573',
+      age: 85,
+      dob: '14/10/1938',
+      salary: 9,
+      address: 'Address9',
+    },
+    {
+      id: 1010,
+      imageUrl: 'https://hub.dummyapis.com/Image?text=SW&height=120&width=120',
+      firstName: 'Stephon',
+      lastName: 'Wehner',
+      email: 'Stephon.Wehner@dummyapis.com',
+      contactNumber: '4954290817',
+      age: 56,
+      dob: '26/05/1967',
+      salary: 10,
+      address: 'Address10',
+    },
+  ]);
+
+  deleteItem(item: Item) {
+    this.items$ = this.items$.pipe(
+      map((items) => items.filter((tempItem) => tempItem.id != item.id))
+    );
+  }
+}

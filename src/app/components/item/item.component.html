@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> {{ item.firstName }} {{ item.lastName }} </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container space-between">
+      <div>
+        <div class="container">
+          <mat-icon fontIcon="email"></mat-icon><span>{{ item.email }}</span>
+        </div>
+        <div class="container">
+          <mat-icon fontIcon="home"></mat-icon><span>{{ item.address }}</span>
+        </div>
+      </div>
+      <img mat-card-sm-image src="{{ item.imageUrl }}" alt="Angular Logo" />
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="deleteItem(item)">
+      DELETE
+    </button>
+  </mat-card-actions>
+</mat-card>
